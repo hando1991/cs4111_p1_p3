@@ -1,0 +1,26 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+{# author: Dongbing #}
+<body>
+<center>
+  <h1 style="color:green;font-style:italic;">
+      Welcome to the Patient Management System</h1>
+</center>
+
+<form method="POST" action="/search_near_med">
+     Please enter information to find the medicine and the selling place of this medicine.<br>
+    <p> Prescription ID: <input type="text" name="Prescription number"> <br>
+     <input type="reset" value="Reset">
+     <input type="submit" value="Submit" ></p>
+</form>
+
+<p><a href="doctorfindmedicine">Medicine Information</a></p>
+<p><a href="/">Home page</a></p>
+</body>
+</html>

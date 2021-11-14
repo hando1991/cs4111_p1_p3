@@ -1,0 +1,72 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+{# author: Wei He #}
+<body>
+<center>
+  <h1 style="color:green;font-style:italic;">
+      Welcome to the Patient Management System</h1>
+</center>
+
+<form method="POST" action="/search_doctor">
+    1. Please enter your Patient ID to find your doctor <br>
+    <p> Your Patient ID: <input type="number" name="pid">
+     Your Case Number: <input type="number" name="case_id"> <br>
+     <input type="reset" value="Reset">
+     <input type="submit" value="Submit" ></p>
+</form>
+
+<div>
+  {% for n in data %}
+
+  <div>Doctor Name: {{ n[1] }}</div>
+  <div>Types: {{ n[2] }}</div>
+  <div>Year of Experience: {{ n[5] }}</div>
+      <div>Working Hospital: {{ n[7] }}</div>
+      <br>
+  {% endfor %}
+</div>
+
+<br>
+OR
+<br>
+
+<form method="POST" action="/search_doctor_type">
+    <p> 2. Please enter the type of doctor your are finding if you do not have one </p>
+<p> Doctor Type: <input type="text" name="type"> <br>
+    <input type="reset" value="Reset">
+    <input type="submit" value="Submit" >
+</p>
+</form>
+
+<br>
+
+<div>
+  {% for n in data2 %}
+
+  <div>Doctor Name: {{ n[1] }}</div>
+  <div>Types: {{ n[2] }}</div>
+  <div>Year of Experience: {{ n[5] }}</div>
+  <div>Working Hospital: {{ n[7] }}</div>
+      <br>
+  {% endfor %}
+</div>
+
+<br>
+
+<div style="color: red">
+    {% if error %}
+    <div>{{ error }} </div>
+    {% endif %}
+</div>
+
+<p><a href="prescription">Your prescription</a></p>
+<p><a href="findhospitalmed">Search nearest hospital for your medicine</a></p>
+<p><a href="/">Home page</a></p>
+</body>
+</html>

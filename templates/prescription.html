@@ -1,0 +1,43 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+{# author: Wei He #}
+<body>
+<center>
+  <h1 style="color:green;font-style:italic;">
+      Welcome to the Patient Management System</h1>
+</center>
+
+<form method="POST" action="/search_prescription">
+<p> Your Patient ID: <input type="number" name="pid" required> <br>
+    <input type="reset" value="Reset">
+    <input type="submit" value="Submit"></p>
+</form>
+
+<div>
+  {% for n in data %}
+
+  <div>Patient ID: {{ n[3] }}</div>
+  <div>Case Number: {{ n[0] }}</div>
+  <div>Drug Name: {{ n[1] }}</div>
+  <div>Date Assigned: {{ n[5] }}</div>
+      <br>
+  {% endfor %}
+</div>
+
+<div style="color: red">
+    {% if error %}
+    <div>{{ error }} </div>
+    {% endif %}
+</div>
+
+<p><a href="finddoctor">Find health provider</a></p>
+<p><a href="findhospitalmed">Search nearest hospital for your medicine</a></p>
+<p><a href="/">Home page</a></p>
+</body>
+</html>

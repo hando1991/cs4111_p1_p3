@@ -1,0 +1,46 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+{# author: Wei He #}
+<body>
+<center>
+  <h1 style="color:green;font-style:italic;">
+      Welcome to the Patient Management System</h1>
+</center>
+
+<form method="POST" action="/search_near_med">
+     Please enter information to find nearest hospital to buy your medicine <br>
+     Result will show from nearest to farthest hospital.<br>
+    <p> Name of Medicine: <input type="text" name="drug_name"> <br>
+     Amount of medicine required: <input type="number" name="amount"> <br>
+      Your zip code: <input type="number" name="zip"> <br>
+     <input type="reset" value="Reset">
+     <input type="submit" value="Submit" ></p>
+</form>
+
+<div>
+  {% for n in data %}
+      <div>{{ loop.index }}: Hospital Name: {{ n[0] }}</div>
+      <div> &nbsp;&nbsp;&nbsp;Hospital zip code: {{ n[1] }}</div>
+      <br>
+  {% endfor %}
+</div>
+
+<br>
+
+<div style="color: red">
+    {% if error %}
+    <div>{{ error }} </div>
+    {% endif %}
+</div>
+
+<p><a href="prescription">Your prescription</a></p>
+<p><a href="finddoctor">Find health provider</a></p>
+<p><a href="/">Home page</a></p>
+</body>
+</html>
